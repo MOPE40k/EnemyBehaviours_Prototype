@@ -64,7 +64,7 @@ namespace _Project.Develop.Features.SpawnFeatures
                     => new MoveToTargetBehaviour(_enemyInstance, _playerOnScene.transform),
 
                 BehaviourTypes.SelfDestroyBehaviour
-                    => new SelfDestroyBehaviour(_enemyInstance, _explosionEffectPrefab),
+                    => new SelfDestroyBehaviour(_enemyInstance, _enemyInstance.ParticlesPoint, _explosionEffectPrefab),
 
                 _
                     => throw new ArgumentOutOfRangeException("Unknown behaviour type!")

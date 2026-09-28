@@ -63,10 +63,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7921056610608281714}
   - component: {fileID: 4331653731114838380}
+  - component: {fileID: 2863329733043303456}
   - component: {fileID: 1572466848251004172}
   - component: {fileID: 614054560795295947}
   - component: {fileID: 8231895793126037074}
-  - component: {fileID: 2863329733043303456}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -89,6 +89,7 @@ Transform:
   m_Children:
   - {fileID: 8320274382506055722}
   - {fileID: 2309862116783843983}
+  - {fileID: 1467247080046277572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4331653731114838380
@@ -118,6 +119,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!136 &2863329733043303456
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308237341473003538}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &1572466848251004172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 614054560795295947}
   _animationController: {fileID: 8231895793126037074}
+  ParticlesPoint: {fileID: 1467247080046277572}
 --- !u!114 &614054560795295947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,29 +184,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7937929011702440870}
---- !u!136 &2863329733043303456
-CapsuleCollider:
+--- !u!1 &5806740527820550060
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5308237341473003538}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467247080046277572}
+  m_Layer: 0
+  m_Name: ParticlesPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467247080046277572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806740527820550060}
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7921056610608281714}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8429951297841741761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -762,6 +795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 803e7de95df34496f9c26b8648d5400e,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 803e7de95df34496f9c26b8648d5400e,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 0}
@@ -925,7 +963,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 173.3643
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 803e7de95df34496f9c26b8648d5400e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -949,7 +988,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4538720656311754967}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 803e7de95df34496f9c26b8648d5400e, type: 3}
   m_Controller: {fileID: 9100000, guid: 9593c434154c04134aa36259684fce7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

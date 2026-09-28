@@ -6,12 +6,14 @@ namespace _Project.Develop.Features.BehaviourFeatures
     public sealed class SelfDestroyBehaviour : IBehaviour
     {
         // References
-        private readonly CharacterControllerBase _character = null;
-        private readonly ParticleSystem _explosionEffectPrefab = null;
+        private readonly CharacterControllerBase _character = default;
+        private readonly Transform _particlePoint = default;
+        private readonly ParticleSystem _explosionEffectPrefab = default;
 
-        public SelfDestroyBehaviour(CharacterControllerBase character, ParticleSystem explosionEffect)
+        public SelfDestroyBehaviour(CharacterControllerBase character, Transform particlePoint, ParticleSystem explosionEffect)
         {
             _character = character;
+            _particlePoint = particlePoint;
             _explosionEffectPrefab = explosionEffect;
         }
 
@@ -22,8 +24,8 @@ namespace _Project.Develop.Features.BehaviourFeatures
         {
             GameObject.Instantiate(
                 _explosionEffectPrefab,
-                _character.transform.position,
-                _explosionEffectPrefab.transform.rotation);
+                _particlePoint.position,
+                _explosionEffectPrefab.transform.rotation).Play();
 
             GameObject.Destroy(_character.gameObject);
         }

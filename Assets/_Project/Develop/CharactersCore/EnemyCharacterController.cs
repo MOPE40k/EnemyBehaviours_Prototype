@@ -5,6 +5,9 @@ namespace _Project.Develop.CharactersCore
 {
     public sealed class EnemyCharacterController : CharacterControllerBase
     {
+        [Header("References:")] 
+        [field: SerializeField] public Transform ParticlesPoint = default;
+            
         // References
         private IBehaviour _idleBehaviour = null;
         private IBehaviour _detectBehaviour = null;
